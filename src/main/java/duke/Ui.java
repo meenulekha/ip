@@ -25,6 +25,7 @@ public class Ui {
      */
     public void printMessage(String msg) {
         System.out.println(msg);
+        assert msg != null : "Printed message is null";
     }
     /**
      * Sets the response generated during the execution of user input.
@@ -40,6 +41,7 @@ public class Ui {
      * @return The stored response.
      */
     public String getResponse() {
+        assert response != null : "Response is null when getting";
         return response;
     }
 }

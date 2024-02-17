@@ -2,7 +2,6 @@ package duke;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 
 /**
  * Represents a task in the task list.

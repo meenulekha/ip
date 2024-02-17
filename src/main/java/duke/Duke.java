@@ -198,7 +198,6 @@ public class Duke extends Application {
             Platform.runLater(() -> {
                 Stage stage = (Stage) userInput.getScene().getWindow();
                 stage.close();
-                //Platform.exit();
             });
             return "Bye. Hope to see you again soon!";
         }

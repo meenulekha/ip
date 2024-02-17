@@ -30,9 +30,12 @@ public class TaskList {
      * @param task The task to be added.
      */
     public void addTask(Task task) {
+        Task tToAdd = task;
+        int initial = tasks.size();
         tasks.add(task);
-        storage.saveToFile(tasks.size(), tasks); //index?
-        i++;
+        storage.saveToFile(tasks.size(), tasks);
+        assert tasks.size() == initial + 1 : "Task not added correctly";
+        assert tasks.contains(tToAdd) : "Task not found in the task list";
     }
     /**
      * Deletes a task from the task list at the specified index and saves the updated list to the file.
@@ -40,11 +43,13 @@ public class TaskList {
      * @param index The index of the task to be deleted.
      */
     public void deleteTask(int index) {
+        int initial = tasks.size();
         if (i > 0 && i < tasks.size()) {
             tasks.remove(index);
-            storage.saveToFile(i, tasks);
+            storage.saveToFile(tasks.size(), tasks);
             i--;
         }
+        assert tasks.size() == initial - 1 : "Task not deleted correctly";
     }
     /**
      * Retrieves the list of tasks.
@@ -75,7 +80,9 @@ public class TaskList {
      */
     public void setTask(int index, Task elem) {
         tasks.set(index, elem);
+        assert getTask(index) == elem : "Task not set correctly";
     }
-
-
 }
+
+
+

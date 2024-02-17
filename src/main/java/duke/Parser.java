@@ -34,6 +34,7 @@ public class Parser {
         String action = elems[0];
         String[] dateFormats = {"dd/MM/yyyy", "MMM dd yyyy"};
         int i = 0;
+        assert i >= 0 : "Index should not be negative";
         while (tasks.getTask(i) != null) {
             i++;
         }
@@ -92,7 +93,7 @@ public class Parser {
                             DateTimeFormatter.ofPattern(format));
                     break;
                 } catch (DateTimeParseException ignored) {
-                    ;
+                    assert false : "Invalid date format";
                 }
             }
             if (deadlineDate != null) {
@@ -118,7 +119,7 @@ public class Parser {
                     toDate = LocalDate.parse(fromto[2], DateTimeFormatter.ofPattern(format));
                     break;
                 } catch (DateTimeParseException ignored) {
-                    ;
+                    assert false : "Invalid date format";
                 }
             }
             if (toDate != null & fromDate != null) {
